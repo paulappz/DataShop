@@ -1,0 +1,22 @@
+<ion-content class="background">
+  <ion-card>
+    <ion-card-header>
+      Sign Up
+    </ion-card-header>
+     <ion-card-content>     
+      <ion-list no-line>
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="newuser.displayName" name="Fullname" placeholder="FullName"></ion-input>
+        </ion-item>
+         <ion-item>
+          <ion-input type="email"  [(ngModel)]="newuser.email" name="Email" placeholder="Email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" [(ngModel)]="newuser.password" name="Password" placeholder="Password"></ion-input>
+        </ion-item>
+      <button ion-button block round outline color="light" (click)="signup()">Sign Up</button>
+       <button ion-button clear round color="light" (click)="Login()" style="font-size:9px;"> Back to Login</button>
+     </ion-list>
+      </ion-card-content>
+  </ion-card>
+</ion-content>

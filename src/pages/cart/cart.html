@@ -1,0 +1,55 @@
+<!--
+  Generated template for the CartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="healer">
+    <ion-title > Cart </ion-title>  
+      <ion-buttons end>
+      <button ion-button icon-only style="color:whitesmoke;text-transform:capitalize;font-size:12px;">
+        <ion-icon name="cart" style="font-size:20px;"  ></ion-icon>Price: &#8358;{{total}}
+      </button>
+    </ion-buttons> 
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding class="background">
+
+<div *ngIf="total == 0;else cartbox" style="margin-top:200px;color:gray;font-size:20px;text-align:center;"> Cart is empty</div>
+
+<ng-template #cartbox>
+
+ <ion-card col-sm-12 col-md-12 col-lg-12 *ngFor="let cart of carts;let index = index; let order of orders;" style="height:70px;background-color:#f5f4f7 ;box-shadow: 1px 1px 5px #1c0b42">    
+      <div style="height:60px; width:100%;" >
+
+         <img  src="{{cart.image_dir}}" style="width:60px; height:60px;float:left;margin-right:10px;"/> 
+     <div style="float:left;color:#1c0b42;font-size:12px;margin-right:30px;margin-top:10px;font-weight:normal">
+
+         <ion-icon name="reorder"></ion-icon> {{cart.size}} &nbsp; &nbsp; <ion-icon name="pricetag" ></ion-icon>   &#8358;{{cart.price}}
+        
+         <ion-input [(ngModel)]="orders[index].number_to_credit" value="{{order.number_to_credit}}" style="width:100px; height:30px;" type="text" placeholder="phone number"></ion-input>
+         
+      <!--   <ion-input [(ngModel)]="phone[index].number_to_credit" value="{{phone.number_to_credit}}" style="width:100px; height:30px;" type="text" placeholder="phone number"></ion-input>-->
+         
+         </div>
+        <button ion-button icon-only style="position:absolute;right:10%;"  color="light" small end (click)="removeitem(cart.id,cart.price)">
+  <ion-icon color="danger" name="trash"></ion-icon>
+</button>
+      </div>
+  </ion-card>
+
+  <button  #btn (click)="checkOut()" ion-button block full round outline color="healer" style="text-transform:capitalize;font-size:12px;"> 
+         <ion-icon name="ios-cash-outline" style="font-size:20px;">&nbsp;</ion-icon> Check Out
+</button> 
+
+</ng-template>
+
+</ion-content>
+
+
+
+

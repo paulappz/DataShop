@@ -1,0 +1,27 @@
+
+<ion-content class="background">
+  <ion-card>
+    <ion-card-header>
+      Login
+    </ion-card-header>
+     <ion-card-content>     
+      <ion-list no-line>
+        <ion-item>
+          <ion-input type="email" [(ngModel)]="credentials.email" placeholder="Email" name="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" [(ngModel)]="credentials.password" placeholder="Password" name="password" ></ion-input>
+        </ion-item>
+         
+     <button ion-button clear round color="light" (click)="goToResetPassword()" style="font-size:9px;"> I forgot my password 🙁</button>
+
+      <button ion-button block round outline color="light" (click)="signin()">Log In</button>
+      <p>OR</p>
+      <button ion-button round block color="facebook">
+        <ion-icon name="logo-facebook">&nbsp;</ion-icon>Login With Facebook
+      </button>
+     </ion-list>
+      </ion-card-content>
+  </ion-card>
+    <button class="bottom" ion-button clear full color="light" (click)="createAccount()" >Don't have an account? Sign Up</button>
+</ion-content>

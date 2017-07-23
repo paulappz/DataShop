@@ -1,17 +1,49 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Shopping List</ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-row>
+  <ion-col col-9>
+  <ion-item>
+     <ion-input type="text" [(ngModel)]="item.id" placeholder="S/no"required></ion-input>
+  <ion-input type="text" [(ngModel)]="item.network" placeholder="Service Network"required></ion-input>
+  <ion-input type="text" [(ngModel)]="item.size" placeholder="Data Size"required></ion-input>
+  <ion-input type="text" [(ngModel)]="item.price" placeholder="Price"required></ion-input>
+
+</ion-item>
+
+</ion-col>
+<ion-col>
+  <button ion-button (click) ="addItem($event)"> Add!</button>
+
+  </ion-col>
+  </ion-row>
+
+
+
+<ion-grid>
+  <ion-row>
+    <ion-col col-sm-6 col-md-3 col-lg-2 *ngFor="let item of shopItem" style=" border: 1px dotted navy;">
+      <div style=" height:130px;padding-top:15px;">
+       
+       <div style="background-color:#eceaf2; margin:0 auto; width:90px; height:110px;box-shadow: 2px 2px 5px black;
+    border-radius:10px; ">
+         <div style="position:absolute;right:10px;;background-color:beige;border-radius:50%;width:30px;height:30px;">
+          <ion-icon style="font-size:20px; display:block;margin-left:5px;margin-top:5px;" name="cart" color="facebook" right (click)="additem(item.id,item.price)"></ion-icon>
+        </div>
+          <img src="{{item.image_dir}}" style="border-radius:5px;"width="90px" height="70px" />
+          <div class="" style=" margin-top:5px; color:black; font-size:11px;">&nbsp; <strong>{{item.size}}&nbsp; </strong> <ion-icon name="pricetag" ></ion-icon>  &#8358;{{item.price}} 
+         
+          </div>
+        </div>
+      </div>
+
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+
 </ion-content>

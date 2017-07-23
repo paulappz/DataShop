@@ -1,0 +1,29 @@
+
+<ion-header>
+
+  <ion-navbar  color="healer">
+    <ion-title>Profile Picture</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="background">
+  
+<div class="profile-image">
+  <img src="{{imgurl}}">
+</div>
+
+<div>
+  <button ion-button round outline (click)="chooseimage()">Choose an image</button>
+</div>
+
+<div [hidden]="moveon">
+  <button ion-button round outline (click)="proceed()">Shop</button>
+</div>
+
+<div [hidden]="!moveon">
+  <button ion-button round outline (click)="proceed()">Shop</button>
+</div>
+
+</ion-content>
