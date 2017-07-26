@@ -94,6 +94,10 @@ export class CartPage {
     this.navCtrl.push('QueuePage');
   }
 
+  gotoWallet() {
+    this.navCtrl.push('WalletPage');
+  }
+
   makePayment() {
     let statusalert = this.alertCtrl.create({
       buttons: ['okay']
@@ -127,7 +131,7 @@ export class CartPage {
                   this.userservice.addorder(this.orders);
                   
                 })
-                    this.gotoQueue();
+                    this.gotoWallet();
               }
 
               else {

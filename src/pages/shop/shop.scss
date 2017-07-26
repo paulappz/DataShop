@@ -4,5 +4,13 @@ page-shop{
     background-color:whitesmoke;
 }
 
-
+ion-spinner * {
+  width: 28px;
+  height: 28px;
+  stroke: #444;
+  fill: navy;
+  position:absolute;
+  left:50%;
+  top:20%;
+}
 }

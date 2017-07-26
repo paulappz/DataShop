@@ -22,13 +22,13 @@ export class UserProvider {
         .then(() => {
           this.afriauth.auth.currentUser.updateProfile({
             displayName: newuser.displayName,
-            photoURL: '../../assets/Ayo.png',
+            photoURL: 'https://firebasestorage.googleapis.com/v0/b/myapp-4eadd.appspot.com/o/chatterplace.png?alt=media&token=e51fa887-bfc6-48ff-87c6-e2c61976534e',
            walletBal : newuser.walletBal
         }).then(() => {
             this.firedata.child(this.afriauth.auth.currentUser.uid).set({
               uid: this.afriauth.auth.currentUser.uid,
               displayName: newuser.displayName,
-              photoURL: '../../assets/Ayo.png',
+              photoURL: 'https://firebasestorage.googleapis.com/v0/b/myapp-4eadd.appspot.com/o/chatterplace.png?alt=media&token=e51fa887-bfc6-48ff-87c6-e2c61976534e',
               walletBal: newuser.walletBal
            }).then(() => {
               resolve({ success: true });
@@ -47,8 +47,10 @@ export class UserProvider {
 
 addorder(neworder){
   var id = this.afriauth.auth.currentUser.uid;
+  var status = 'Pending';
+
   console.log(id);
-  neworder.forEach(function(obj) { obj.uid = id , obj.date = new Date().toLocaleString(); });
+  neworder.forEach(function(obj) { obj.uid = id, obj.status = status , obj.date = new Date().toLocaleString(); });
  this.fireorders.push(neworder);
 }
 
@@ -71,7 +73,7 @@ updateimage(imageurl) {
               photoURL: imageurl,
               walletBal: this.afriauth.auth.currentUser.walletBal 
           }).then(() => {
-              firebase.database().ref('/users/' + firebase.auth().currentUser.uid).update({
+              firebase.database().ref('/shopusers/' + firebase.auth().currentUser.uid).update({
               displayName: this.afriauth.auth.currentUser.displayName,
               photoURL: imageurl,
               uid: firebase.auth().currentUser.uid,
@@ -110,7 +112,6 @@ updatedisplayname(newname) {
     }).then(() => {
       this.firedata.child(firebase.auth().currentUser.uid).update({
         displayName: newname,
-        photoURL: this.afriauth.auth.currentUser.photoURL,
         uid: this.afriauth.auth.currentUser.uid
       }).then(() => {
         resolve({ success: true });
@@ -133,7 +134,6 @@ updateWallet(newbal){
     }).then(() => {
       this.firedata.child(firebase.auth().currentUser.uid).update({
         displayName: this.afriauth.auth.currentUser.displayName,
-        photoURL: this.afriauth.auth.currentUser.photoURL,
         uid: this.afriauth.auth.currentUser.uid,
         walletBal : newbal
       }).then(() => {
@@ -192,9 +192,22 @@ this.fireorders.once('value', (snapshot) => {
            if (id == orders[i].uid) {
           items.push(orders[i]);
            }
+        
         }
         return false;
       })
+   
+         items.forEach(function (obj) {
+        var done = 'done';
+        var pending = 'pending';
+        if (obj.status == 'Pending') {
+          obj.color = pending;
+        }
+        else {
+          obj.color = done;
+        }
+      })
+
   
         //   snapshot.forEach((snap) => {    
         //         items.push({

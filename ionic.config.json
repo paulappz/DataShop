@@ -1,5 +1,6 @@
 {
-  "name": "Ionic3Angular4App",
-  "app_id": "",
+  "name": "DataShop",
+  "app_id": "2c1d7630",
+  "v3": true,
   "type": "ionic-angular"
 }

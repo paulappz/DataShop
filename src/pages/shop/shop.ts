@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 import { ShopItems} from '../../module/interface/items';
+import { Network } from '@ionic-native/network';
 
 
 @IonicPage()
@@ -13,13 +14,13 @@ export class ShopPage {
   cart: any;
   pagetotal: any;
   item = {} as ShopItems; 
-  shopItem : any;
+  shopItem : any= 0;
   order : any;
-  constructor(public navCtrl: NavController,public userservice: UserProvider, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,public network:Network,public toast: ToastController, public userservice: UserProvider, public navParams: NavParams) {
 
-  this.userservice.getallshop().then((res: any) => {
+this.userservice.getallshop().then((res: any) => {
       this.shopItem = res;
-   });
+   });  
 /*
     this.shopItem = [{ 'id': 1, 'size': '250mb', 'price': 250, 'image': '../../assets/MTN.png' },
     { 'id': 2, 'name': '500mb', 'price': 350, 'image': '../../assets/Etisalat.png' },
@@ -41,20 +42,33 @@ export class ShopPage {
      this.order = [];
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ShopPage');
-  }
+ionViewDidEnter() {
+  this.network.onConnect().subscribe(data => {
+    this.displayNetworkUpdate(data.type);
+  }, error => console.error(error));
+ 
+  this.network.onDisconnect().subscribe(data => {
+    this.displayNetworkUpdate(data.type);
+  }, error => console.error(error));
+}
+
+displayNetworkUpdate(connectionState: string){
+  let networkType = this.network.type
+  this.toast.create({
+    message: `You are now ${connectionState} via ${networkType}`,
+    duration: 3000
+  }).present();
+}
 
   additem(item1, price) {
     this.cart.push(this.shopItem[item1 - 1]);
-     this.order.push({network :this.shopItem[item1 - 1].network, size:this.shopItem[item1-1].size});
+    this.order.push({network :this.shopItem[item1 - 1].network, size:this.shopItem[item1-1].size, url:this.shopItem[item1-1].image_dir });
 //this.cart.forEach(function(obj) { obj.number_to_credit = null; });
 this.order.forEach(function(obj) { obj.number_to_credit = null; });
     return this.cart.lenght;
   }
 
   gotocart() {
-    console.log('welcome to CartPage');
     var total = this.gettotal(this.cart);
     this.navCtrl.push('CartPage', { param1: this.cart, param2: total, param3: this.order });
   }

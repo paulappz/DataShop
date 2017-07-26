@@ -18,6 +18,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { UserProvider } from '../providers/user/user';
 import { ImghandlerProvider } from '../providers/imghandler/imghandler';
 import { OrdersProvider } from '../providers/orders/orders';
+import { Network } from '@ionic-native/network';
+import { NetworkmonitorProvider } from '../providers/networkmonitor/networkmonitor';
 
 
 
@@ -54,7 +56,9 @@ export const firebaseConfig = {
     ImghandlerProvider, File,
     FilePath,
     FileChooser,
-    OrdersProvider]
+    OrdersProvider,
+  Network,
+    NetworkmonitorProvider]
 })
 export class AppModule {}
 

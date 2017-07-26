@@ -15,15 +15,13 @@
 </div>
 
 <div>
-  <button ion-button round outline (click)="chooseimage()">Choose an image</button>
-</div>
-
-<div [hidden]="moveon">
-  <button ion-button round outline (click)="proceed()">Shop</button>
-</div>
-
-<div [hidden]="!moveon">
-  <button ion-button round outline (click)="proceed()">Shop</button>
-</div>
+    <button ion-button round outline (click)="chooseimage()">Choose an image</button>
+  </div>
+  <div [hidden]="!moveon">
+    <button ion-button round outline (click)="proceed()">Skip this step</button>
+  </div>
+  <div [hidden]="moveon">
+    <button ion-button round outline (click)="updateproceed()">Upload & proceed</button>
+  </div>
 
 </ion-content>

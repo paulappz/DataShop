@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 
 /**
@@ -14,14 +14,12 @@ import { UserProvider } from '../../providers/user/user';
   templateUrl: 'queue.html',
 })
 export class QueuePage {
-queues :any;
-   constructor(public userservice: UserProvider) {
+  queues: any;
+  constructor(public userservice: UserProvider) {
     console.log('Hello OrdersProvider Provider');
 
-
-  this.userservice.getordersbyuser().then((res: any) => {
+    this.userservice.getordersbyuser().then((res: any) => {
       this.queues = res;
-   console.log(this.queues);
-   });
-}
+    });
+  }
 }
