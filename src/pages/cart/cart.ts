@@ -94,8 +94,8 @@ export class CartPage {
     this.navCtrl.push('QueuePage');
   }
 
-  gotoWallet() {
-    this.navCtrl.push('WalletPage');
+  gotoCart() {
+    this.navCtrl.setRoot('CartPage');
   }
 
   makePayment() {
@@ -127,11 +127,11 @@ export class CartPage {
                 statusalert.present();
                 this.zone.run(() => {
                   this.walletBalance = this.walletBalance;
-                 
+
                   this.userservice.addorder(this.orders);
-                  
+
                 })
-                    this.gotoWallet();
+                    this.gotoCart();
               }
 
               else {

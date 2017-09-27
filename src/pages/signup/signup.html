@@ -1,11 +1,20 @@
-<ion-content class="background">
-  <ion-card>
-    <ion-card-header>
-      Sign Up
-    </ion-card-header>
-     <ion-card-content>     
-      <ion-list no-line>
-        <ion-item>
+
+
+<ion-content class="signup-content" padding>
+  <ion-row class="logo-row">
+    <ion-col style="font-size:24px;color:white;margin-right:10px;font-weight:normal;text-align:right;text-transform:capitalize;">Data</ion-col>
+    <ion-col width-67>
+      <img src="assets/logo1.png"/>
+    </ion-col>
+    <ion-col style="font-size:24px;color:white;font-weight:normal;text-align:left;text-transform:capitalize;">Shop</ion-col>
+  </ion-row>
+  <div class="signup-box">
+
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            
+          <ion-item>
           <ion-input type="text" [(ngModel)]="newuser.displayName" name="Fullname" placeholder="FullName"></ion-input>
         </ion-item>
          <ion-item>
@@ -14,9 +23,22 @@
         <ion-item>
           <ion-input type="password" [(ngModel)]="newuser.password" name="Password" placeholder="Password"></ion-input>
         </ion-item>
-      <button ion-button block round outline color="light" (click)="signup()">Sign Up</button>
-       <button ion-button clear round color="light" (click)="Login()" style="font-size:9px;"> Back to Login</button>
-     </ion-list>
-      </ion-card-content>
-  </ion-card>
+         
+               <button ion-button block round outline class="submit-btn" (click)="signup()">Sign Up</button>
+  
+          </ion-list>
+     
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col class="login-col">
+           <button ion-button clear round color="light" (click)="Login()" style="font-size:9px;"> Back to Login</button>
+  
+        </ion-col>
+      </ion-row>
+      
+   
+  </div>
 </ion-content>
+

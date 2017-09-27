@@ -1,41 +1,44 @@
-
 <ion-header>
-  <ion-navbar color="healer">
-    <ion-title > Data ShopNg </ion-title>  
-      <ion-buttons end>
-      <button ion-button icon-only (click)="gotocart()" style="color:whitesmoke;text-transform:lowercase;font-size:12px;">
+    <ion-navbar color="healer">
+        <ion-title> Data ShopNg </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="gotocart()" style="color:whitesmoke;text-transform:lowercase;font-size:12px;">
         <ion-icon name="cart"  ></ion-icon>{{cart.length}}  &nbsp;
       </button>
-    </ion-buttons> 
-  </ion-navbar>
+        </ion-buttons>
+    </ion-navbar>
 
 </ion-header>
 <ion-content class="background">
 
- <div style="position:absolute;top:0px;left:50%;" *ngIf="shopItem == 0;else shopbox"><ion-spinner name="circles">
-  </ion-spinner></div>
+    <div style="position:absolute;top:0px;left:50%;" *ngIf="shopItem == 0;else shopbox">
+        <ion-spinner name="circles">
+        </ion-spinner>
+    </div>
 
-<ng-template #shopbox> 
-<ion-grid>
-  <ion-row>
-    <ion-col padding col-xs-6 col-sm-6 col-md-4 col-lg-2 *ngFor="let item of shopItem" style=" border: 1px dotted #1c0b42;">
-      <div style=" height:130px;padding-top:15px;position:relative;width:125px;margin:auto;">
-       
-       <div style="background-color:#eceaf2; margin:0 auto; width:90px; height:110px;box-shadow: 2px 2px 4px #1c0b42;
+    <ng-template padding #shopbox>
+        <ion-grid>
+            <ion-row>
+                <ion-col col-lg-6 col-md-6 *ngFor="let item of shopItem" style=" min-width:130px;max-width:300px; border: 1px dotted #1c0b42;margin:auto;">
+
+                    <div style=" height:145px;padding-top:15px;position:relative;width:125px;margin:auto;max-width:150px;">
+
+                        <div style="background-color:#eceaf2; margin:0 auto; width:90px; height:110px;box-shadow: 2px 2px 4px #1c0b42;
     border-radius:10px; ">
-         <div style="position:absolute;right:10px;background-color:#ccc;border-radius:50%;width:30px;height:30px;">
-          <ion-icon style="font-size:20px; display:block;margin-left:6px;margin-top:6px;" name="cart" color="healer" right (click)="additem(item.id,item.price)"></ion-icon>
-        </div>
-          <img src="{{item.image_dir}}" style="border-radius:5px;"width="90px" height="70px" />
-          <div class="" style=" margin-top:5px; color:black; font-size:11px;">&nbsp; <strong>{{item.size}}&nbsp; </strong> <ion-icon name="pricetag" ></ion-icon>  &#8358;{{item.price}} 
-         
-          </div>
-        </div>
-      </div>
+                            <div style="position:absolute;right:10px;background-color:#ccc;border-radius:50%;width:30px;height:30px;">
+                                <ion-icon style="font-size:20px; display:block;margin-left:6px;margin-top:6px;" name="cart" color="healer" right (click)="additem(item.id,item.price)"></ion-icon>
+                            </div>
+                            <img src="{{item.image_dir}}" style="border-radius:5px;" width="90px" height="70px" />
+                            <div class="" style=" margin-top:5px; color:black; font-size:11px;">&nbsp; <strong>{{item.size}}&nbsp; </strong>
+                                <ion-icon name="pricetag"></ion-icon> &#8358;{{item.price}}
 
-    </ion-col>
-  </ion-row>
-</ion-grid>
- </ng-template> 
+                            </div>
+                        </div>
+                    </div>
+
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ng-template>
 
 </ion-content>

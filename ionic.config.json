@@ -2,5 +2,8 @@
   "name": "DataShop",
   "app_id": "2c1d7630",
   "v3": true,
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }

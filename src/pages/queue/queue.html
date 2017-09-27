@@ -1,37 +1,34 @@
 <ion-header>
-  <ion-navbar color="healer">
-    <ion-title>Order</ion-title>
-  </ion-navbar>
+    <ion-navbar color="healer">
+        <ion-title>Order</ion-title>
+    </ion-navbar>
 </ion-header>
 
-  <ion-content class="background">
+<ion-content class="background">
 
- <div style="position:absolute;top:0px;left:50%;" *ngIf="queues == 0;else orderbox"><ion-spinner name="circles">
-  </ion-spinner></div>
+    <div style="position:absolute;top:0px;left:50%;" *ngIf="queues == 0;else orderbox">
+        <ion-spinner name="circles">
+        </ion-spinner>
+    </div>
 
-<ng-template #orderbox> 
+    <ng-template #orderbox>
+        <ion-card col-sm-12 col-md-12 col-lg-12 full>
+            <p style="color:navy; text-align:center;margin-top:10px;">Order history</p>
+            <hr>
+            <ion-item *ngFor="let queue of queues">
+                <div style="float:left;width:40px; height:40px; margin-right:10px;"> <img src="{{queue.url}}"> </div>
+                <div style="float:left">
+                    <p style="color:#211730; font-size:14px;width:100%;"><span style="float:left;"> {{queue.size}} data to {{queue.number_to_credit}}</span>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-card  col-sm-12 col-md-12 col-lg-12 full >
-          <p style="color:navy; text-align:center;margin-top:10px; ">Order history</p>
-          <hr>
-          <ion-item *ngFor="let queue of queues">
-           <div style="float:left;width:40px; height:40px; margin-right:10px;"> <img src="{{queue.url}}" > </div>
-           <div style="float:left"> 
-           <p style="color:#211730; font-size:12px;width:100%;"><span style="float:left;"> {{queue.size}} data to {{queue.number_to_credit}}</span>
-            
-            </p>
-          <p style="color:#65606d; font-size:10px; clear:both;"> <span style="right:0;">{{queue.date}}</span>  &nbsp;  &nbsp; &nbsp; <ion-badge style="font-size:10px;" color="{{queue.color}}" item-end>{{queue.status}}</ion-badge></p>
-           </div>
-            <hr style="clear:both;">
-          </ion-item>
+                    </p>
+                    <p style="color:#65606d; font-size:12px; clear:both;"> <span style="right:0;">{{queue.date}}</span> &nbsp; &nbsp; &nbsp;
+                        <ion-badge style="font-size:10px;" color="{{queue.color}}" item-end>{{queue.status}}</ion-badge>
+                    </p>
+                </div>
+                <hr style="clear:both;">
+            </ion-item>
         </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
 
- </ng-template> 
+    </ng-template>
 
 </ion-content>

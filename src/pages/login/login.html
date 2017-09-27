@@ -1,27 +1,43 @@
 
-<ion-content class="background">
-  <ion-card>
-    <ion-card-header>
-      Login
-    </ion-card-header>
-     <ion-card-content>     
-      <ion-list no-line>
-        <ion-item>
+
+
+<ion-content class="login-content" padding>
+  <ion-row class="logo-row">
+    <ion-col style="font-size:24px;color:white;margin-right:10px;font-weight:normal;text-align:right;text-transform:capitalize;">Data</ion-col>
+    <ion-col width-67>
+     <img src="assets/logo1.png"/>
+    </ion-col>
+    <ion-col style="font-size:24px;color:white;font-weight:normal;text-align:left;text-transform:capitalize;">Shop</ion-col>
+  </ion-row>
+  <div class="login-box">
+
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            
+            <ion-item>
           <ion-input type="email" [(ngModel)]="credentials.email" placeholder="Email" name="email"></ion-input>
         </ion-item>
         <ion-item>
           <ion-input type="password" [(ngModel)]="credentials.password" placeholder="Password" name="password" ></ion-input>
         </ion-item>
+            <button ion-button clear round color="light" (click)="goToResetPassword()" style="font-size:10px;text-transform:lowercase"> I forgot my password 🙁</button> 
          
-     <button ion-button clear round color="light" (click)="goToResetPassword()" style="font-size:9px;"> I forgot my password 🙁</button>
-
-      <button ion-button block round outline color="light" (click)="signin()">Log In</button>
-      <p>OR</p>
-      <button ion-button round block color="facebook">
+               <button ion-button block round outline class="submit-btn" (click)="signin()">Log In</button>
+      <button ion-button round block color="facebook" style="text-transform:capitalize;">
         <ion-icon name="logo-facebook">&nbsp;</ion-icon>Login With Facebook
       </button>
-     </ion-list>
-      </ion-card-content>
-  </ion-card>
-    <button class="bottom" ion-button clear full color="light" (click)="createAccount()" >Don't have an account? Sign Up</button>
+          </ion-list>
+     
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col class="signup-col">
+  <button class="bottom" ion-button clear full color="light" (click)="createAccount()" >Don't have an account? Sign Up</button>
+        </ion-col>
+      </ion-row>
+      
+   
+  </div>
 </ion-content>

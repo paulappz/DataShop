@@ -1,14 +1,14 @@
-<ion-menu [content]="content">
+<!-- <ion-menu [content]="content">
     <ion-header>
        <ion-list class="headerbg">
    <img src="./assets/bg3.jpg" style="width: 80px; height: 80px; margin: auto; border-radius: 50%;display: block;">
        </ion-list>
-       
+
     </ion-header>
 
     <ion-content>
         <ion-list>
-            <button menuClose 
+            <button menuClose
             ion-item *ngFor="let p of pages "[class.activeHighlight]="checkActive(9)" (click)="openPage(p)">
             {{p.title}}
             </button>
@@ -16,4 +16,5 @@
     </ion-content>
 </ion-menu>
 
-<ion-nav [root]="rootPage" #content swipeBackEnable="false"> </ion-nav>
+<ion-nav [root]="rootPage" #content swipeBackEnable="false"> </ion-nav> -->
+<ion-nav [root]="rootPage"></ion-nav>

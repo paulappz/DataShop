@@ -9,9 +9,9 @@ import {File} from '@ionic-native/file';
 export class ImghandlerProvider {
   nativepath: any;
   firestore = firebase.storage();
-  constructor(public filechooser: FileChooser) {
+  constructor(public filechooser: FileChooser, public Filepath: FilePath, public File : File) {
   }
- 
+
   uploadimage() {
     var promise = new Promise((resolve, reject) => {
         this.filechooser.open().then((url) => {
@@ -38,7 +38,7 @@ export class ImghandlerProvider {
             })
           })
       })
-    })    
-     return promise;   
+    })
+     return promise;
   }
 }

@@ -1,21 +1,37 @@
 
-<ion-content class="background">
-  <ion-card>
-    <ion-card-header>
-     Reset
-    </ion-card-header>
-     <ion-card-content>     
-      <ion-list no-line>
-        <ion-item>
+
+
+<ion-content class="reset-content" padding>
+  <ion-row class="logo-row">
+    <ion-col style="font-size:24px;color:white;margin-right:10px;font-weight:normal;text-align:right;text-transform:capitalize;">Data</ion-col>
+    <ion-col width-67>
+     <img src="assets/logo1.png"/>
+    </ion-col>
+    <ion-col style="font-size:24px;color:white;font-weight:normal;text-align:left;text-transform:capitalize;">Shop</ion-col>
+  </ion-row>
+  <div class="reset-box">
+
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+           <ion-item>
           <ion-input type="email" [(ngModel)]="email" placeholder="Email" name="email"></ion-input>
         </ion-item>
-        
-         
-     <button ion-button outline round  color="light" (click)="resetPassword()" > Reset Password</button><br>
-
-  <button ion-button outline clear round color="light" (click)="goBack()" style="font-size:9px;"> Back to Login</button>
-     </ion-list>
-      </ion-card-content>
-  </ion-card>
-
+          <button ion-button outline round  color="light" class="submit-btn"  (click)="resetPassword()" > Reset Password</button><br>
+             
+          </ion-list>
+     
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col class="login-col">
+           <button ion-button clear round color="light"  (click)="goBack()" style="font-size:9px;"> Back to Login</button>
+  
+        </ion-col>
+      </ion-row>
+      
+   
+  </div>
 </ion-content>
+

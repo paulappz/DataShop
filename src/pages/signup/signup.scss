@@ -1,68 +1,68 @@
 page-signup {
 
- .background{
-    background-image:url('../assets/bg3.jpg');
-    background-repeat: no-repeat;
-   
-    }
 
-    .scroll-content {
-        align-content: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-    }
+@import url(https://fonts.googleapis.com/css?family=Questrial);
+@import url(http://fonts.googleapis.com/css?family=Dancing+Script:700);
 
-    ion-card.card{
-        box-shadow: none;
-        background: rgba(0,0,0,0.5);
-        border-radius: 5px;
+.signup-content {
+    background: #1c0b42;
+     .logo-row {
+      padding-top: 30px;
+      padding-bottom: 20px;
+       font-family: 'Dancing Script', cursive;
     }
+ 
+    .signup-box {
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1c0b42+26,2989d8+50,2989d8+54,1c0b42+88 */
+background: rgb(28,11,66); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(28,11,66,1) 26%, rgba(41,137,216,1) 50%, rgba(41,137,216,1) 54%, rgba(28,11,66,1) 88%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(28,11,66,1) 26%,rgba(41,137,216,1) 50%,rgba(41,137,216,1) 54%,rgba(28,11,66,1) 88%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(28,11,66,1) 26%,rgba(41,137,216,1) 50%,rgba(41,137,216,1) 54%,rgba(28,11,66,1) 88%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c0b42', endColorstr='#1c0b42',GradientType=0 ); /* IE6-9 */
 
-    a,p,
-    ion-card-header.card-header{
-        color: #fff!important;
+      padding: 20px 20px 0px 20px;
+      text-transform:capitalize;
+       
     }
+ 
+    ion-row {
+       align-items: center;
+       text-align: center;
+       text-transform:capitalize;
+     }
+ 
+     ion-item {
+         border-radius: 30px !important;
+         padding-left: 30px !important;
+         font-size: 0.9em;
+         margin-bottom: 10px;
+         border: 1px solid #ffffff;
+         border-bottom: 0px !important;
+         box-shadow: none !important;
+     }
+ 
+     .login-col {
+       margin: 0px 16px 0px 16px;
+       padding-bottom: 20px;
+     }
+ 
+     .item-inner {
+       border-bottom-color: #ffffff !important;
+       box-shadow: none !important;
+     }
+ 
+     .submit-btn {
+       background: #fff;
+       border-radius: 30px !important;
+       color: #1c0b42;
+       text-transform:capitalize;
+     }
+ 
+     .register-btn {
+       color: #ffffff;
+       font-size: 0.8em;
+     }
+  }
 
-    .list > .item-block .item-inner{
-         border: medium none;
-    }
-    .item{
-        margin-bottom: 10px;
-        background: rgba(255,255,255,0.5);
-        border: medium none;
-    
-    .text-input{
-            color:#fff;
-    }
-    input::-moz-placeholder{
-        color:#fff!important;
-    }
-     input:-moz-placeholder{
-        color:#fff!important;
-    }
-     *::-webkit-input-placeholder{
-        color:#fff!important;
-    }
-     *:-ms-input-placeholder{
-        color:#fff!important;
-    }
-     *::-ms-input-placeholder{
-        color:#fff!important;
-    }
-    *:-moz-placeholder{
-        color:#fff!important;
-    }
-}
-
-.icon{
-    padding-right: 10px;
-}
-
-.bottom{
-    position: absolute;
-    bottom:0;
-}  
 
 }
